@@ -1,12 +1,31 @@
+---
+import '../styles/global.css';
+import favicon from '../assets/favicon.svg';
+
+const title = 'SEE GPA Calculator — Official NEB Grade Point Average for Class 10';
+const description =
+	'Free, ad-free SEE GPA calculator for Nepali Class 10 students. Compute your Grade Point Average from grades or marks using the official NEB methodology, plan target grades, and check +2 stream eligibility.';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href={favicon.src} />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		{/* FOUC-free theme bootstrap: apply `.dark` before first paint from
+		    stored choice, falling back to the OS preference (Requirement 19.1). */}
+		<script is:inline>
+			(() => {
+				const stored = localStorage.getItem("see-theme"); // "light" | "dark" | null
+				const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
+				const dark = stored ? stored === "dark" : prefersDark;
+				document.documentElement.classList.toggle("dark", dark);
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />

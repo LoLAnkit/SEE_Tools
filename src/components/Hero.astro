@@ -1,0 +1,329 @@
+---
+// Hero.astro — premium, SaaS-style static intro section for the SEE GPA Calculator.
+// No client JS and no calculator logic (Requirement 1.3, 21.2).
+// All SEO microdata, the H1, description and feature list are preserved.
+---
+
+<section
+  class="hero relative isolate overflow-hidden border-b border-hairline bg-canvas"
+  itemscope
+  itemtype="https://schema.org/WebApplication"
+>
+  <!-- SEO: Microdata tells Google exactly what this tool does -->
+  <meta itemprop="applicationCategory" content="EducationalApplication, CalculatorApplication" />
+  <meta itemprop="name" content="NEB SEE GPA Calculator" />
+  <meta itemprop="operatingSystem" content="Web" />
+
+  <!-- ── Atmospheric backdrop: soft mesh gradient + dotted grid ── -->
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <!-- ── Floating academic geometry (decorative, hidden from AT) ── -->
+  <div class="hero-floaters" aria-hidden="true">
+    <!-- GPA badge — circle -->
+    <div class="floater floater--a">
+      <span class="chip chip--circle chip--violet">
+        <span class="chip-text">GPA</span>
+      </span>
+    </div>
+
+    <!-- A+ grade — rounded square -->
+    <div class="floater floater--b">
+      <span class="chip chip--square chip--blue">
+        <span class="chip-text">A+</span>
+      </span>
+    </div>
+
+    <!-- Graduation cap — circle -->
+    <div class="floater floater--c">
+      <span class="chip chip--circle chip--cyan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+          <path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5" />
+          <path d="M22 10v5" />
+        </svg>
+      </span>
+    </div>
+
+    <!-- Pi symbol — rounded square -->
+    <div class="floater floater--d">
+      <span class="chip chip--square chip--amber">
+        <span class="chip-text chip-text--serif">π</span>
+      </span>
+    </div>
+
+    <!-- Percent — circle -->
+    <div class="floater floater--e">
+      <span class="chip chip--circle chip--pink">
+        <span class="chip-text">%</span>
+      </span>
+    </div>
+
+    <!-- Book / notes — rounded square -->
+    <div class="floater floater--f">
+      <span class="chip chip--square chip--violet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5V5.5Z" />
+          <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 20.5Z" />
+        </svg>
+      </span>
+    </div>
+
+    <!-- Square root — circle -->
+    <div class="floater floater--g">
+      <span class="chip chip--circle chip--blue">
+        <span class="chip-text chip-text--serif">√</span>
+      </span>
+    </div>
+
+    <!-- Bare geometric accents -->
+    <span class="shape shape--ring" aria-hidden="true"></span>
+    <span class="shape shape--dot" aria-hidden="true"></span>
+    <span class="shape shape--tri" aria-hidden="true"></span>
+  </div>
+
+  <!-- ── Foreground content ── -->
+  <div class="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-20 text-center sm:px-6 sm:py-28">
+    <!-- Eyebrow pill -->
+    <p class="mb-5 inline-flex items-center gap-2 rounded-pill border border-hairline bg-canvas-soft px-3 py-1 font-mono text-xs uppercase tracking-widest text-mute shadow-sm">
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+      NEB · Nepal Class 10
+    </p>
+
+    <!-- SEO: Front-loaded primary keywords in the H1 -->
+    <h1
+      class="max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl"
+      itemprop="headline"
+    >
+      SEE <span class="hero-gradient-text">GPA Calculator</span> &amp; Planner
+    </h1>
+
+    <!-- SEO: Natural semantic text with secondary long-tail keywords -->
+    <p class="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-body sm:text-lg" itemprop="description">
+      A fast, accessible, ad-free <strong class="font-semibold text-ink">SEE GPA calculator</strong> for Nepali
+      students. Compute your Grade Point Average from letter grades or raw marks, plan the grades you need to hit a
+      target GPA, and check your <strong class="font-semibold text-ink">+2 stream eligibility</strong> — all using the
+      latest official NEB grading methodology.
+    </p>
+
+    <!-- CTA cluster -->
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a
+        href="#calculator"
+        class="inline-flex h-11 items-center justify-center rounded-pill bg-brand px-6 text-sm font-medium text-on-brand shadow-md transition-transform duration-150 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+      >
+        Calculate my GPA
+      </a>
+      <a
+        href="#methodology"
+        class="inline-flex h-11 items-center justify-center rounded-pill border border-hairline bg-canvas px-6 text-sm font-medium text-ink shadow-sm transition-colors duration-150 hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+      >
+        How it works
+      </a>
+    </div>
+
+    <!-- SEO: semantic feature list -->
+    <ul
+      class="mt-10 flex flex-wrap justify-center gap-2.5 text-sm m-0 list-none p-0"
+      aria-label="Calculator Features"
+      itemprop="featureList"
+    >
+      <li class="rounded-pill border border-hairline bg-canvas-soft px-3.5 py-1.5 text-body backdrop-blur-sm">
+        Grade &amp; Mark Conversion
+      </li>
+      <li class="rounded-pill border border-hairline bg-canvas-soft px-3.5 py-1.5 text-body backdrop-blur-sm">
+        Target GPA Planner
+      </li>
+      <li class="rounded-pill border border-hairline bg-canvas-soft px-3.5 py-1.5 text-body backdrop-blur-sm">
+        +2 Stream Eligibility Checks
+      </li>
+      <li class="rounded-pill border border-hairline bg-canvas-soft px-3.5 py-1.5 text-body backdrop-blur-sm">
+        Official Marksheet Preview
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hero {
+    --g-violet: #7928ca;
+    --g-blue: #007cf0;
+    --g-cyan: #00dfd8;
+    --g-pink: #ff0080;
+    --g-amber: #f5a623;
+  }
+
+  /* ── Mesh gradient backdrop ── */
+  .hero-mesh {
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 130%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(38% 50% at 18% 20%, color-mix(in srgb, var(--g-violet) 26%, transparent) 0%, transparent 70%),
+      radial-gradient(34% 44% at 82% 16%, color-mix(in srgb, var(--g-blue) 24%, transparent) 0%, transparent 70%),
+      radial-gradient(40% 50% at 70% 80%, color-mix(in srgb, var(--g-cyan) 20%, transparent) 0%, transparent 72%),
+      radial-gradient(30% 40% at 30% 88%, color-mix(in srgb, var(--g-pink) 16%, transparent) 0%, transparent 70%);
+    filter: blur(8px);
+    opacity: 0.9;
+  }
+
+  :global(.dark) .hero-mesh {
+    opacity: 0.5;
+  }
+
+  /* ── Dotted grid overlay ── */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 26px 26px;
+    color: var(--color-ink);
+    opacity: 0.05;
+    mask-image: radial-gradient(75% 70% at 50% 45%, #000 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(75% 70% at 50% 45%, #000 0%, transparent 100%);
+  }
+
+  /* ── Floating chips ── */
+  .hero-floaters {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .floater {
+    position: absolute;
+    will-change: transform;
+    animation: float var(--dur, 9s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--color-canvas) 86%, transparent);
+    border: 1px solid var(--color-hairline);
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.04),
+      0 12px 28px -10px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .chip--circle {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+  }
+
+  .chip--square {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 14px;
+  }
+
+  .chip svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .chip-text {
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.02em;
+  }
+
+  .chip-text--serif {
+    font-family: var(--font-mono);
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  /* Accent colors per chip */
+  .chip--violet { color: var(--g-violet); }
+  .chip--blue { color: var(--g-blue); }
+  .chip--cyan { color: var(--g-cyan); }
+  .chip--amber { color: var(--g-amber); }
+  .chip--pink { color: var(--g-pink); }
+
+  :global(.dark) .chip--cyan { color: #2ad6c6; }
+  :global(.dark) .chip--blue { color: #3b9eff; }
+
+  /* Positions + motion variety (desktop) */
+  .floater--a { top: 16%; left: 8%;  --dur: 9s;  --delay: 0s; }
+  .floater--b { top: 30%; left: 16%; --dur: 11s; --delay: 1.2s; }
+  .floater--c { top: 62%; left: 11%; --dur: 10s; --delay: 0.6s; }
+  .floater--d { top: 14%; right: 12%; --dur: 12s; --delay: 0.3s; }
+  .floater--e { top: 40%; right: 8%;  --dur: 9.5s; --delay: 1.6s; }
+  .floater--f { top: 66%; right: 14%; --dur: 11.5s; --delay: 0.9s; }
+  .floater--g { top: 78%; left: 46%; --dur: 13s; --delay: 0.4s; }
+
+  /* Bare geometric accents */
+  .shape { position: absolute; will-change: transform; }
+  .shape--ring {
+    top: 22%; right: 26%;
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 9999px;
+    border: 2px solid color-mix(in srgb, var(--g-blue) 45%, transparent);
+    animation: float 14s ease-in-out infinite;
+  }
+  .shape--dot {
+    top: 50%; left: 30%;
+    width: 0.6rem; height: 0.6rem;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--g-pink) 60%, transparent);
+    animation: float 8s ease-in-out infinite 0.8s;
+  }
+  .shape--tri {
+    bottom: 16%; right: 30%;
+    width: 0; height: 0;
+    border-left: 0.6rem solid transparent;
+    border-right: 0.6rem solid transparent;
+    border-bottom: 1rem solid color-mix(in srgb, var(--g-amber) 55%, transparent);
+    animation: float 12s ease-in-out infinite 1s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-16px) rotate(3deg); }
+  }
+
+  /* ── Gradient headline text ── */
+  .hero-gradient-text {
+    background: linear-gradient(100deg, var(--g-violet), var(--g-blue) 55%, var(--g-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hide the smaller floaters on narrow screens to avoid clutter */
+  @media (max-width: 640px) {
+    .floater--b,
+    .floater--f,
+    .floater--g,
+    .shape--ring,
+    .shape--tri {
+      display: none;
+    }
+    .floater--a { top: 9%; left: 4%; }
+    .floater--c { top: 80%; left: 4%; }
+    .floater--d { top: 8%; right: 4%; }
+    .floater--e { top: 78%; right: 4%; }
+    .chip--circle { width: 2.75rem; height: 2.75rem; }
+    .chip--square { width: 2.6rem; height: 2.6rem; }
+    .chip svg { width: 1.15rem; height: 1.15rem; }
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .floater,
+    .shape {
+      animation: none !important;
+    }
+  }
+</style>

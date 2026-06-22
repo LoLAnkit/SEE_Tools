@@ -1,0 +1,50 @@
+---
+// SeoContentSlots.astro — placeholder slots for future FAQ and HowTo content.
+// No client JS and no calculator logic (Requirement 1.3, 21.2, 22.2).
+//
+// SEO NOTE (see docs/seo-guide.md):
+// Full SEO optimization is intentionally out of scope for the current build.
+// These sections mark exactly where future content should be added:
+//   - FAQ: question/answer pairs answering common SEE GPA questions.
+//          Later, attach FAQPage JSON-LD structured data here.
+//   - HowTo: step-by-step usage guide for the calculator.
+//           Later, attach HowTo JSON-LD structured data here.
+// Keep this file logic-free; it exists only to reserve the content structure.
+---
+
+<section id="faq" class="border-t border-hairline bg-canvas-soft" aria-labelledby="faq-heading">
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <h2 id="faq-heading" class="text-2xl font-semibold tracking-tight text-ink">
+      Frequently asked questions
+    </h2>
+    <p class="mt-2 max-w-2xl text-sm text-mute">
+      {/* FAQ placeholder — future FAQ question/answer content and FAQPage structured data go here. */}
+      FAQ content is coming soon.
+    </p>
+
+    {/* TODO(seo): Render FAQ items here. Example structure for future content:
+        <dl>
+          <dt>Question…</dt>
+          <dd>Answer…</dd>
+        </dl>
+        Then add FAQPage JSON-LD to the page head. */}
+  </div>
+</section>
+
+<section id="how-to" class="border-t border-hairline bg-canvas" aria-labelledby="howto-heading">
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <h2 id="howto-heading" class="text-2xl font-semibold tracking-tight text-ink">
+      How to use the calculator
+    </h2>
+    <p class="mt-2 max-w-2xl text-sm text-mute">
+      {/* HowTo placeholder — future step-by-step guide and HowTo structured data go here. */}
+      A step-by-step guide is coming soon.
+    </p>
+
+    {/* TODO(seo): Render HowTo steps here. Example structure for future content:
+        <ol>
+          <li>Step…</li>
+        </ol>
+        Then add HowTo JSON-LD to the page head. */}
+  </div>
+</section>

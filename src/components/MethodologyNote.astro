@@ -1,0 +1,62 @@
+---
+// MethodologyNote.astro — pure static explanation of the NEB GPA methodology.
+// No client JS and no calculator logic (Requirement 1.3, 21.2, 23.3).
+// Key message: GPA is computed by weighting GRADE POINTS, not raw marks.
+---
+
+<section id="methodology" class="border-b border-hairline bg-canvas-soft">
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
+    <h2 class="text-2xl font-semibold tracking-tight text-ink">
+      How the GPA is calculated
+    </h2>
+    <p class="mt-2 max-w-2xl text-sm text-mute">
+      The official NEB SEE GPA weights grade points, not raw marks. Here is the
+      exact process this calculator follows.
+    </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <div class="rounded-md border border-hairline bg-canvas p-5">
+        <span class="font-mono text-xs text-mute">Step 1</span>
+        <h3 class="mt-1 text-base font-semibold text-ink">Marks become a percentage</h3>
+        <p class="mt-2 text-sm leading-relaxed text-body">
+          Theory and practical are handled separately. Each component's marks are
+          converted to a percentage of its own maximum.
+        </p>
+      </div>
+
+      <div class="rounded-md border border-hairline bg-canvas p-5">
+        <span class="font-mono text-xs text-mute">Step 2</span>
+        <h3 class="mt-1 text-base font-semibold text-ink">Percentage maps to a grade band</h3>
+        <p class="mt-2 text-sm leading-relaxed text-body">
+          Each percentage falls into a discrete grade band on the SEE 4.0 scale,
+          and every band carries a fixed grade point — for example A+ is 4.0.
+        </p>
+      </div>
+
+      <div class="rounded-md border border-hairline bg-canvas p-5">
+        <span class="font-mono text-xs text-mute">Step 3</span>
+        <h3 class="mt-1 text-base font-semibold text-ink">Subject GP is a weighted average</h3>
+        <p class="mt-2 text-sm leading-relaxed text-body">
+          A subject's grade point is the weighted average of its component
+          <em>grade points</em>: theory and practical at 75/25 for standard
+          subjects, or 50/50 for Computer Science. Raw marks are never averaged.
+        </p>
+      </div>
+
+      <div class="rounded-md border border-hairline bg-canvas p-5">
+        <span class="font-mono text-xs text-mute">Step 4</span>
+        <h3 class="mt-1 text-base font-semibold text-ink">Final GPA is credit-hour weighted</h3>
+        <p class="mt-2 text-sm leading-relaxed text-body">
+          The final GPA is the credit-hour-weighted average of every subject's
+          grade point: the sum of (credit hours × subject GP) divided by the sum
+          of credit hours.
+        </p>
+      </div>
+    </div>
+
+    <p class="mt-6 rounded-md border border-hairline bg-canvas px-4 py-3 text-sm text-body">
+      <span class="font-semibold text-ink">In short:</span> grade points are
+      weighted, never raw marks. This matches the official NEB marksheet exactly.
+    </p>
+  </div>
+</section>

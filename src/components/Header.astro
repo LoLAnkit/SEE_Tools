@@ -1,0 +1,288 @@
+---
+// Header.astro — pure static site header / branding.
+// No client JS and no calculator logic (Requirement 1.3, 21.2).
+// The theme toggle is interactive and lives inside the React island, not here.
+import logo from '../assets/logo.svg';
+import logoDark from '../assets/logo-dark.svg';
+---
+
+<header id="nav-header" role="banner">
+
+    <!-- ── Mobile overlay ── -->
+    <div id="tu-overlay"
+      class="sm:hidden fixed inset-0 bg-(--light-bg) text-(--light-text)  dark:bg-(--dark-bg) dark:text-(--dark-text) backdrop-blur-[3px] z-[55] transition-all duration-300 opacity-0 invisible cursor-pointer"
+      aria-hidden="true"></div>
+
+    <!-- ── Mobile slide panel ── -->
+    <div id="tu-panel"
+      class="sm:hidden fixed top-0 left-0 h-full w-[80vw] max-w-[320px] bg-(--light-bg) dark:bg-(--dark-bg) shadow-[0_25px_40px_-12px_rgba(0,0,0,0.3)] z-[60] transition-transform duration-200 -translate-x-full flex flex-col"
+      aria-hidden="true">
+
+      <!-- Panel header -->
+      <div class="flex flex-col gap-4 p-5 border-b border-(--light-border) shrink-0">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <img src={logo.src} alt="National Examination Board logo" class="h-8 w-8 dark:hidden" loading="lazy" onerror="this.style.display='none'">
+            <img src={logoDark.src} alt="National Examination Board logo" class="h-8 w-8 hidden dark:block" loading="lazy" onerror="this.style.display='none'">
+            <span class="font-jua text-lg text-gray-900 dark:text-white tracking-tight">SEEpapers.com</span>
+          </div>
+          <button id="tu-close"
+            class="text-2xl leading-none text-gray-500 hover:text-gray-900 dark:hover:text-white w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+            aria-label="Close navigation menu">×</button>
+        </div>
+        <h2 class="font-jua text-xl text-gray-900 dark:text-white">Subjects</h2>
+      </div>
+
+      <!-- Panel nav -->
+      <div class="flex-1 overflow-y-auto">
+        <nav class="p-1" aria-label="Mobile Navigation">
+          <ul class="flex flex-col gap-4 font-jua">
+
+          <li>
+  <a href="/see/english/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>English</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/nepali/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Nepali</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/math/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Mathematics</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/science-science/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Science</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/social-studies/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Social Studies</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/optional-mathematics/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Optional Mathematics</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/computer-science/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Computer Science</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/health-population-environment/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Health, Population &amp; Environment</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/account/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Account</span>
+  </a>
+</li>
+
+<li>
+  <a href="/see/economics/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>Economics</span>
+  </a>
+</li>  
+
+          
+ 
+
+
+          </ul>
+        </nav>
+
+        <!-- Social icons -->
+        <div class="px-4 pb-4 mt-6">
+          <h2 class="font-jua text-lg font-bold text-gray-900 dark:text-white mb-4">Follow Us On</h2>
+          <div class="flex gap-5 items-center">
+
+            <a href="https://www.facebook.com/profile.php?id=61576273885401" target="_blank" rel="noopener noreferrer" aria-label="National Examination Board on Facebook">
+              <div class="relative w-5 h-5">
+                <img src="/assets/nav-icon/facebook-dark.svg"
+                  class="w-full h-full border bg-black rounded-full hidden md:block" alt="" loading="lazy"
+                  onerror="this.style.display='none'">
+                <img src="/assets/nav-icon/fb-original.svg"
+                  class="absolute inset-0 w-full h-full md:opacity-0 hover:opacity-100 transition-opacity"
+                  alt="National Examination Board on Facebook" loading="lazy" onerror="this.style.display='none'">
+              </div>
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="National Examination Board on Instagram">
+              <div class="relative w-5 h-5">
+                <img src="/assets/nav-icon/instagram-light.svg" class="w-full h-full hidden md:block dark:hidden" alt="" loading="lazy"
+                  onerror="this.style.display='none'">
+                <img src="/assets/nav-icon/instagram-original.svg"
+                  class="absolute inset-0 w-full h-full md:opacity-0 hover:opacity-100 transition-opacity"
+                  alt="National Examination Board on Instagram" loading="lazy" onerror="this.style.display='none'">
+                <img src="/assets/nav-icon/instagram-dark.svg" class="hidden dark:block w-full h-full" alt="" loading="lazy"
+                  onerror="this.style.display='none'">
+              </div>
+            </a>
+
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Contact National Examination Board on WhatsApp">
+              <div class="relative w-5 h-5">
+                <img src="/assets/nav-icon/whatsapp.svg" class="w-full h-full hidden md:block dark:hidden" alt="" loading="lazy"
+                  onerror="this.style.display='none'">
+                <img src="/assets/nav-icon/whatsapp-light.svg"
+                  class="absolute inset-0 w-full h-full md:opacity-0 hover:opacity-100 transition-opacity"
+                  alt="Contact National Examination Board on WhatsApp" loading="lazy" onerror="this.style.display='none'">
+                <img src="/assets/nav-icon/whatsapp-dark.svg" class="hidden dark:block w-full h-full" alt="" loading="lazy"
+                  onerror="this.style.display='none'">
+              </div>
+            </a>
+
+            <a href="http://reddit.com/r/National Examination Board/" target="_blank" rel="noopener noreferrer" aria-label="National Examination Board subreddit on Reddit">
+              <div class="relative w-5 h-5 bg-black rounded-full">
+                <img src="/assets/nav-icon/reddit-native.svg" class="w-full h-full hidden md:block" alt="" loading="lazy"
+                  onerror="this.style.display='none'">
+                <img src="/assets/nav-icon/reddit-original.svg"
+                  class="absolute inset-0 w-full h-full md:opacity-0 hover:opacity-100 transition-opacity" alt="National Examination Board subreddit on Reddit" loading="lazy"
+                  onerror="this.style.display='none'">
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END mobile panel -->
+
+    <!-- ── Navbar ── -->
+    <nav id="tu-navbar"
+      class="fixed top-0 left-0 right-0 z-40 sm:z-50 flex font-inter bg-(--light-bg) dark:bg-(--dark-bg) justify-between md:px-12 px-2 py-1 h-12 border-b border-(--light-border) dark:border-gray-200  "
+      aria-label="National Examination Board Main Navigation">
+
+      <!-- Left: hamburger + logo -->
+      <div class="flex items-center w-full sm:w-fit justify-between gap-2">
+
+        <button id="tu-hamburger"
+          class="sm:hidden p-1 rounded-md h-9 w-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 active:scale-95 transition-transform"
+          aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="tu-panel">
+          <img src="/assets/hamburger-menue.svg" class="h-6 w-6 dark:hidden" alt="" loading="lazy"
+            onerror="this.style.display='none'">
+          <img src="/assets/hamburger-menue-dark.svg" class="h-5 w-5 hidden dark:block" alt="" loading="lazy"
+            onerror="this.style.display='none'">
+          <!-- Fallback hamburger if SVGs missing -->
+          <svg class="h-6 w-6 text-gray-700 dark:text-white" style="display:none" id="tu-ham-fallback" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <a href="/" class="flex   items-center gap-2 hover:opacity-90 transition-opacity"
+          aria-label="National Examination Board - National Examination Board Past Papers Homepage" title="SEEpapers.com – TU Past Papers & Study Resources">
+          <img src={logo.src} class="h-8 w-8 dark:hidden" alt="National Examination Board logo" fetchpriority="high"
+            onerror="this.style.display='none'">
+          <img src={logoDark.src} class="h-8 w-8 hidden dark:block" alt="National Examination Board logo" fetchpriority="high"
+            onerror="this.style.display='none'">
+          <span class="font-jua text-lg sm:text-[22px] text-gray-900 dark:text-white tracking-tight">SEEpapers.com</span>
+        </a>
+
+       
+      </div>
+
+      <!-- Right: desktop nav + theme toggle -->
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:flex gap-6 items-center text-[14px] text-gray-700 dark:text-gray-200">
+
+          <!-- Resources dropdown -->
+          <div class="relative" id="tu-res-wrapper">
+            <button id="tu-res-btn"
+              class="px-4 py-2 font-semibold rounded-lg transition-colors flex items-center gap-1 hover:text-purple-500 hover:bg-blue-50 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+              aria-haspopup="true" aria-expanded="false" aria-controls="tu-res-dropdown" aria-label="Site Resources">
+              Resources
+              <svg id="tu-res-chevron" class="w-4 h-4 transition-transform duration-200" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div id="tu-res-dropdown"
+              class="absolute right-0 mt-1 w-50 bg-(--light-bg) dark:bg-(--dark-bg) rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 z-50 hidden opacity-0 translate-y-1 transition-all duration-150"
+              role="menu" aria-label="Resources submenu">
+              <div class="p-3">
+                <ul class="space-y-2" role="none">
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/english/">English</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/nepali/">Nepali</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/math/">Mathematics</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/science/">Science</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/social-studies/">Social Studies</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/optional-mathematics/">Optional Mathematics</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/computer-science/">Computer Science</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/health-population-environment/">Health, Population &amp; Environment</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/account/">Account</a>
+                  </li>
+                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <a href="/see/economics/">Economics</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+
+        <!-- Theme toggle (all screen sizes) -->
+        <button id="tu-theme-btn"
+          class="fixed right-0 top-[85%] md:static rounded-lg bg-(--light-bg) dark:bg-(--dark-bg) transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+          aria-label="Toggle dark mode">
+          <svg id="tu-theme-icon" xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 md:h-8 md:w-8 text-gray-700 dark:text-white transition-transform duration-300" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+            <path class="tu-moon" stroke-linecap="round" stroke-linejoin="round"
+              d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            <path class="tu-sun" stroke-linecap="round" stroke-linejoin="round" style="display:none"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <!-- END navbar -->
+
+    <!-- ── Spacer so content clears the fixed navbar ── -->
+    <div style="height:48px;" aria-hidden="true"></div>
+
+
+  </header>

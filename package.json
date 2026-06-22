@@ -9,9 +9,35 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "overrides": {
+    "vite": "^7"
   },
   "dependencies": {
-    "astro": "^6.4.7"
+    "@astrojs/react": "^5.0.7",
+    "@tailwindcss/vite": "^4.3.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.4.7",
+    "html2canvas": "1.4.1",
+    "jspdf": "4.2.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "axe-core": "^4.12.1",
+    "fast-check": "^4.8.0",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.9",
+    "vitest-axe": "^0.1.0"
   }
 }

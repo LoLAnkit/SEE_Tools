@@ -1,11 +1,46 @@
 ---
-import Welcome from '../components/Welcome.astro';
+/**
+ * index.astro — Main page: composes all static sections and mounts exactly
+ * one <CalculatorIsland client:load />.
+ *
+ * Architecture (Requirements 1.1–1.4, 21.1, 21.2):
+ *   - All layout sections are logic-free .astro components (no calc state)
+ *   - A single React island carries all interactive calculator logic
+ *   - `client:load` hydrates the island immediately on page load
+ */
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import GradingScaleReference from '../components/GradingScaleReference.astro';
+import MethodologyNote from '../components/MethodologyNote.astro';
+import SeoContentSlots from '../components/SeoContentSlots.astro';
+import Footer from '../components/Footer.astro';
+import CalculatorIsland from '../components/calculator/CalculatorIsland';
 ---
 
 <Layout>
-	<Welcome />
+  <!-- Static site header -->
+  <Header />
+
+  <!-- Hero intro -->
+  <Hero />
+
+  <!-- Calculator section — single hydrated island (Requirement 1.2, 1.4) -->
+  <section id="calculator" class="bg-canvas border-b border-hairline">
+    <div class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <CalculatorIsland client:load />
+    </div>
+  </section>
+
+  <!-- Static grading scale reference (Requirement 18.1, 18.2) -->
+  <GradingScaleReference />
+
+  <!-- Methodology explanation (Requirement 23.3) -->
+  <MethodologyNote />
+
+  <!-- SEO content placeholder slots (Requirement 22.2) -->
+  <SeoContentSlots />
+
+  <!-- Footer -->
+  <Footer />
 </Layout>

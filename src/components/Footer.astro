@@ -1,0 +1,19 @@
+---
+// Footer.astro — pure static site footer.
+// No client JS and no calculator logic (Requirement 1.3, 21.2).
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-hairline bg-canvas">
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 text-sm text-mute sm:flex-row sm:items-center sm:justify-between sm:px-6"
+  >
+    <p>
+      &copy; {year} SEE GPA Calculator. Built for Nepali Class 10 students.
+    </p>
+    <p class="max-w-md text-xs leading-relaxed">
+      Results follow the official National Examinations Board (NEB) grading
+      methodology. This tool is for estimation and study planning only.
+    </p>
+  </div>
+</footer>
