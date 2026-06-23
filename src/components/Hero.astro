@@ -30,12 +30,20 @@
     <!-- A+ grade — rounded square -->
     <div class="floater floater--b">
       <span class="chip chip--square chip--blue">
-        <span class="chip-text">A+</span>
+        <span class="chip-text">A</span>
       </span>
     </div>
 
-    <!-- Graduation cap — circle -->
+ 
+    <!-- Pi symbol — rounded square -->
     <div class="floater floater--c">
+      <span class="chip chip--square chip--amber">
+        <span class="chip-text chip-text--serif">π</span>
+      </span>
+    </div>
+
+       <!-- Graduation cap — circle -->
+    <div class="floater floater--d">
       <span class="chip chip--circle chip--cyan">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 10 12 5 2 10l10 5 10-5Z" />
@@ -45,12 +53,6 @@
       </span>
     </div>
 
-    <!-- Pi symbol — rounded square -->
-    <div class="floater floater--d">
-      <span class="chip chip--square chip--amber">
-        <span class="chip-text chip-text--serif">π</span>
-      </span>
-    </div>
 
     <!-- Percent — circle -->
     <div class="floater floater--e">
@@ -83,16 +85,12 @@
   </div>
 
   <!-- ── Foreground content ── -->
-  <div class="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-20 text-center sm:px-6 sm:py-28">
-    <!-- Eyebrow pill -->
-    <p class="mb-5 inline-flex items-center gap-2 rounded-pill border border-hairline bg-canvas-soft px-3 py-1 font-mono text-xs uppercase tracking-widest text-mute shadow-sm">
-      <span class="inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
-      NEB · Nepal Class 10
-    </p>
+  <div class="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-20 text-center sm:px-6 ">
+  
 
     <!-- SEO: Front-loaded primary keywords in the H1 -->
     <h1
-      class="max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-6xl"
+      class="max-w-3xl text-balance  text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-6xl"
       itemprop="headline"
     >
       SEE <span class="hero-gradient-text">GPA Calculator</span> &amp; Planner
@@ -106,21 +104,7 @@
       latest official NEB grading methodology.
     </p>
 
-    <!-- CTA cluster -->
-    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a
-        href="#calculator"
-        class="inline-flex h-11 items-center justify-center rounded-pill bg-brand px-6 text-sm font-medium text-on-brand shadow-md transition-transform duration-150 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-      >
-        Calculate my GPA
-      </a>
-      <a
-        href="#methodology"
-        class="inline-flex h-11 items-center justify-center rounded-pill border border-hairline bg-canvas px-6 text-sm font-medium text-ink shadow-sm transition-colors duration-150 hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-      >
-        How it works
-      </a>
-    </div>
+    
 
     <!-- SEO: semantic feature list -->
     <ul
@@ -153,21 +137,7 @@
     --g-amber: #f5a623;
   }
 
-  /* ── Mesh gradient backdrop ── */
-  .hero-mesh {
-    position: absolute;
-    inset: -20% -10% auto -10%;
-    height: 130%;
-    z-index: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(38% 50% at 18% 20%, color-mix(in srgb, var(--g-violet) 26%, transparent) 0%, transparent 70%),
-      radial-gradient(34% 44% at 82% 16%, color-mix(in srgb, var(--g-blue) 24%, transparent) 0%, transparent 70%),
-      radial-gradient(40% 50% at 70% 80%, color-mix(in srgb, var(--g-cyan) 20%, transparent) 0%, transparent 72%),
-      radial-gradient(30% 40% at 30% 88%, color-mix(in srgb, var(--g-pink) 16%, transparent) 0%, transparent 70%);
-    filter: blur(8px);
-    opacity: 0.9;
-  }
+  
 
   :global(.dark) .hero-mesh {
     opacity: 0.5;

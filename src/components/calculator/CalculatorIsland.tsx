@@ -12,7 +12,6 @@ import { useReducer } from "react";
 import { CalculatorContext } from "./CalculatorContext";
 import { calculatorReducer, initialState } from "./reducer";
 import InstructionLine from "./InstructionLine";
-import ThemeToggle from "./ThemeToggle";
 import GradeMode from "./GradeMode";
 import MarksMode from "./MarksMode";
 import PlanMode from "./PlanMode";
@@ -88,10 +87,8 @@ export default function CalculatorIsland() {
 
         {/* Nav bar: theme toggle left, pill center, mirrored spacer right */}
         <div className="relative flex items-center border-b border-hairline bg-canvas px-4 py-2">
-          {/* Left — theme toggle */}
-          <div className="flex items-center">
-            <ThemeToggle />
-          </div>
+          {/* Left — spacer to balance the pill centering */}
+          <div className="flex items-center" style={{ width: 35 }} aria-hidden="true" />
 
           {/* Center — unified pill */}
           <div className="absolute inset-x-0 flex justify-center pointer-events-none">
@@ -104,9 +101,7 @@ export default function CalculatorIsland() {
           </div>
 
           {/* Right — mirror spacer to keep pill truly centered */}
-          <div className="ml-auto flex items-center opacity-0 pointer-events-none" aria-hidden="true">
-            <ThemeToggle />
-          </div>
+          <div className="ml-auto flex items-center" style={{ width: 35 }} aria-hidden="true" />
         </div>
 
         {/* Tab panels */}

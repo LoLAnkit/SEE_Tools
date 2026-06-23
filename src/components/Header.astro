@@ -10,16 +10,16 @@ import logoDark from '../assets/logo-dark.svg';
 
     <!-- ── Mobile overlay ── -->
     <div id="tu-overlay"
-      class="sm:hidden fixed inset-0 bg-(--light-bg) text-(--light-text)  dark:bg-(--dark-bg) dark:text-(--dark-text) backdrop-blur-[3px] z-[55] transition-all duration-300 opacity-0 invisible cursor-pointer"
+      class="sm:hidden fixed inset-0 bg-white dark:bg-black backdrop-blur-[3px] z-50 transition-all duration-300 opacity-0 invisible cursor-pointer"
       aria-hidden="true"></div>
 
     <!-- ── Mobile slide panel ── -->
     <div id="tu-panel"
-      class="sm:hidden fixed top-0 left-0 h-full w-[80vw] max-w-[320px] bg-(--light-bg) dark:bg-(--dark-bg) shadow-[0_25px_40px_-12px_rgba(0,0,0,0.3)] z-[60] transition-transform duration-200 -translate-x-full flex flex-col"
+      class="sm:hidden fixed top-0 left-0 h-screen w-[80vw] max-w-[320px] bg-white dark:bg-black shadow-[0_25px_40px_-12px_rgba(0,0,0,0.3)] z-55 transition-transform duration-200 -translate-x-full flex flex-col"
       aria-hidden="true">
 
       <!-- Panel header -->
-      <div class="flex flex-col gap-4 p-5 border-b border-(--light-border) shrink-0">
+      <div class="flex flex-col gap-4 p-5 border-b border-gray-200 dark:border-gray-800 shrink-0">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
             <img src={logo.src} alt="National Examination Board logo" class="h-8 w-8 dark:hidden" loading="lazy" onerror="this.style.display='none'">
@@ -30,7 +30,7 @@ import logoDark from '../assets/logo-dark.svg';
             class="text-2xl leading-none text-gray-500 hover:text-gray-900 dark:hover:text-white w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
             aria-label="Close navigation menu">×</button>
         </div>
-        <h2 class="font-jua text-xl text-gray-900 dark:text-white">Subjects</h2>
+        <h2 class="font-jua text-xl text-gray-900 dark:text-white">Streams</h2>
       </div>
 
       <!-- Panel nav -->
@@ -39,78 +39,32 @@ import logoDark from '../assets/logo-dark.svg';
           <ul class="flex flex-col gap-4 font-jua">
 
           <li>
-  <a href="/see/english/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>English</span>
+  <a href="https://seepapers.com/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text-gray-200 border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>SEE</span>
   </a>
 </li>
 
 <li>
-  <a href="/see/nepali/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Nepali</span>
+  <a href="https://seepapers.com/neb/science/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text-gray-200 border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>+2 Science</span>
   </a>
 </li>
 
 <li>
-  <a href="/see/math/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Mathematics</span>
+  <a href="https://seepapers.com/neb/management/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text-gray-200 border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>+2 Management</span>
   </a>
 </li>
 
 <li>
-  <a href="/see/science-science/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Science</span>
+  <a href="https://seepapers.com/neb/humanities/"
+    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text-gray-200 border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:bg-black dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
+    <span>+2 Humanities</span>
   </a>
 </li>
-
-<li>
-  <a href="/see/social-studies/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Social Studies</span>
-  </a>
-</li>
-
-<li>
-  <a href="/see/optional-mathematics/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Optional Mathematics</span>
-  </a>
-</li>
-
-<li>
-  <a href="/see/computer-science/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Computer Science</span>
-  </a>
-</li>
-
-<li>
-  <a href="/see/health-population-environment/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Health, Population &amp; Environment</span>
-  </a>
-</li>
-
-<li>
-  <a href="/see/account/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Account</span>
-  </a>
-</li>
-
-<li>
-  <a href="/see/economics/"
-    class="tu-panel-link flex w-full items-center gap-2 px-4 py-1 text-sm font-medium rounded-lg t dark:text(--dark-text) border-(--border-color) hover:bg-gray-100 dark:bg-(--dark-bg) dark:hover:bg-gray-800 transition-all active:scale-[0.98]">
-    <span>Economics</span>
-  </a>
-</li>  
-
-          
- 
-
 
           </ul>
         </nav>
@@ -173,21 +127,17 @@ import logoDark from '../assets/logo-dark.svg';
 
     <!-- ── Navbar ── -->
     <nav id="tu-navbar"
-      class="fixed top-0 left-0 right-0 z-40 sm:z-50 flex font-inter bg-(--light-bg) dark:bg-(--dark-bg) justify-between md:px-12 px-2 py-1 h-12 border-b border-(--light-border) dark:border-gray-200  "
+      class="fixed top-0 left-0 right-0 z-40 sm:z-50 flex font-inter bg-white dark:bg-black justify-between items-center md:px-12 px-2 py-1 h-12 border-b border-gray-200 dark:border-gray-800 transition-colors"
       aria-label="National Examination Board Main Navigation">
 
       <!-- Left: hamburger + logo -->
-      <div class="flex items-center w-full sm:w-fit justify-between gap-2">
+      <div class="flex items-center gap-2 shrink-0">
 
         <button id="tu-hamburger"
           class="sm:hidden p-1 rounded-md h-9 w-9 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 active:scale-95 transition-transform"
           aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="tu-panel">
-          <img src="/assets/hamburger-menue.svg" class="h-6 w-6 dark:hidden" alt="" loading="lazy"
-            onerror="this.style.display='none'">
-          <img src="/assets/hamburger-menue-dark.svg" class="h-5 w-5 hidden dark:block" alt="" loading="lazy"
-            onerror="this.style.display='none'">
-          <!-- Fallback hamburger if SVGs missing -->
-          <svg class="h-6 w-6 text-gray-700 dark:text-white" style="display:none" id="tu-ham-fallback" fill="none"
+          <!-- Fallback hamburger SVG (shown by default) -->
+          <svg class="h-6 w-6 text-gray-700 dark:text-white" id="tu-ham-fallback" fill="none"
             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -206,15 +156,15 @@ import logoDark from '../assets/logo-dark.svg';
       </div>
 
       <!-- Right: desktop nav + theme toggle -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 ml-auto shrink-0">
         <div class="hidden sm:flex gap-6 items-center text-[14px] text-gray-700 dark:text-gray-200">
 
           <!-- Resources dropdown -->
           <div class="relative" id="tu-res-wrapper">
             <button id="tu-res-btn"
               class="px-4 py-2 font-semibold rounded-lg transition-colors flex items-center gap-1 hover:text-purple-500 hover:bg-blue-50 dark:hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
-              aria-haspopup="true" aria-expanded="false" aria-controls="tu-res-dropdown" aria-label="Site Resources">
-              Resources
+              aria-haspopup="true" aria-expanded="false" aria-controls="tu-res-dropdown" aria-label="Streams">
+              Streams
               <svg id="tu-res-chevron" class="w-4 h-4 transition-transform duration-200" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -222,39 +172,21 @@ import logoDark from '../assets/logo-dark.svg';
             </button>
 
             <div id="tu-res-dropdown"
-              class="absolute right-0 mt-1 w-50 bg-(--light-bg) dark:bg-(--dark-bg) rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 z-50 hidden opacity-0 translate-y-1 transition-all duration-150"
-              role="menu" aria-label="Resources submenu">
+              class="absolute right-0 mt-1 w-50 bg-white dark:bg-black rounded-xl shadow-xl border border-gray-200 dark:border-gray-800 z-50 hidden opacity-0 translate-y-1 transition-all duration-150"
+              role="menu" aria-label="Streams submenu">
               <div class="p-3">
                 <ul class="space-y-2" role="none">
                   <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/english/">English</a>
+                    <a href="https://seepapers.com/">SEE</a>
                   </li>
                   <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/nepali/">Nepali</a>
+                    <a href="https://seepapers.com/neb/science/">+2 Science</a>
                   </li>
                   <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/math/">Mathematics</a>
+                    <a href="https://seepapers.com/neb/management/">+2 Management</a>
                   </li>
                   <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/science/">Science</a>
-                  </li>
-                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/social-studies/">Social Studies</a>
-                  </li>
-                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/optional-mathematics/">Optional Mathematics</a>
-                  </li>
-                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/computer-science/">Computer Science</a>
-                  </li>
-                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/health-population-environment/">Health, Population &amp; Environment</a>
-                  </li>
-                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/account/">Account</a>
-                  </li>
-                  <li class="border hover:cursor-pointer p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <a href="/see/economics/">Economics</a>
+                    <a href="https://seepapers.com/neb/humanities/">+2 Humanities</a>
                   </li>
                 </ul>
               </div>
@@ -266,7 +198,7 @@ import logoDark from '../assets/logo-dark.svg';
 
         <!-- Theme toggle (all screen sizes) -->
         <button id="tu-theme-btn"
-          class="fixed right-0 top-[85%] md:static rounded-lg bg-(--light-bg) dark:bg-(--dark-bg) transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+          class="fixed right-0 top-[85%] md:static rounded-lg bg-white dark:bg-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
           aria-label="Toggle dark mode">
           <svg id="tu-theme-icon" xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6 md:h-8 md:w-8 text-gray-700 dark:text-white transition-transform duration-300" fill="none"
@@ -284,5 +216,199 @@ import logoDark from '../assets/logo-dark.svg';
     <!-- ── Spacer so content clears the fixed navbar ── -->
     <div style="height:48px;" aria-hidden="true"></div>
 
-
   </header>
+
+<script is:inline>
+(function () {
+  /* ── Helpers ── */
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ── Dark mode ── */
+  var html = document.documentElement;
+  var themeBtn = $('tu-theme-btn');
+  var themeIcon = $('tu-theme-icon');
+
+  function syncTheme(dark) {
+    var moon = themeIcon && themeIcon.querySelector('.tu-moon');
+    var sun = themeIcon && themeIcon.querySelector('.tu-sun');
+    if (moon) moon.style.display = dark ? 'none' : '';
+    if (sun) sun.style.display = dark ? '' : 'none';
+    if (themeIcon) themeIcon.style.transform = dark ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+
+  syncTheme(html.classList.contains('dark'));
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var isDark = html.classList.toggle('dark');
+      localStorage.setItem('see-theme', isDark ? 'dark' : 'light');
+      syncTheme(isDark);
+    });
+  }
+
+  /* ── Desktop dropdown ── */
+  var wrapper = $('tu-res-wrapper');
+  var resBtn = $('tu-res-btn');
+  var dropdown = $('tu-res-dropdown');
+  var chevron = $('tu-res-chevron');
+  var closeT = null;
+
+  function showDrop() {
+    clearTimeout(closeT);
+    if (!dropdown) return;
+    dropdown.classList.remove('hidden');
+    requestAnimationFrame(function () {
+      dropdown.classList.remove('opacity-0', 'translate-y-1');
+      dropdown.classList.add('opacity-100', 'translate-y-0');
+    });
+    if (chevron) chevron.style.transform = 'rotate(180deg)';
+    if (resBtn) resBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  function hideDrop() {
+    closeT = setTimeout(function () {
+      if (!dropdown) return;
+      dropdown.classList.add('opacity-0', 'translate-y-1');
+      dropdown.classList.remove('opacity-100', 'translate-y-0');
+      if (chevron) chevron.style.transform = 'rotate(0deg)';
+      if (resBtn) resBtn.setAttribute('aria-expanded', 'false');
+      setTimeout(function () { if (dropdown) dropdown.classList.add('hidden'); }, 150);
+    }, 150);
+  }
+
+  if (wrapper) {
+    wrapper.addEventListener('mouseenter', showDrop);
+    wrapper.addEventListener('mouseleave', hideDrop);
+  }
+  if (resBtn) { resBtn.addEventListener('focus', showDrop); }
+  if (wrapper) {
+    wrapper.addEventListener('focusout', function (e) {
+      if (!wrapper.contains(e.relatedTarget)) hideDrop();
+    });
+  }
+
+  /* ── Push sidebar ── */
+  var panel = $('tu-panel');
+  var overlay = $('tu-overlay');
+  var hamburger = $('tu-hamburger');
+  var closeBtn = $('tu-close');
+  var navbar = $('tu-navbar');
+  var body = document.body;
+  var open = false;
+  var panelW = 0;
+  var pusher = null;
+
+  if (navbar) navbar.style.transition = 'transform 200ms ease';
+
+  var sbW = (function () {
+    var o = document.createElement('div');
+    o.style.cssText = 'visibility:hidden;overflow:scroll;position:absolute;top:-9999px';
+    document.body.appendChild(o);
+    var i = document.createElement('div');
+    o.appendChild(i);
+    var w = o.offsetWidth - i.offsetWidth;
+    o.parentNode.removeChild(o);
+    return w;
+  })();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var header = document.getElementById('nav-header');
+    if (!header) return;
+    pusher = document.createElement('div');
+    pusher.id = 'tu-pusher';
+    pusher.style.cssText = 'transition:transform 200ms ease;min-height:1px;width:100%;';
+    var sibling = header.nextSibling;
+    while (sibling) {
+      var next = sibling.nextSibling;
+      pusher.appendChild(sibling);
+      sibling = next;
+    }
+    body.appendChild(pusher);
+  });
+
+  function getPanelW() {
+    return panel ? panel.offsetWidth || Math.min(window.innerWidth * 0.8, 320) : 320;
+  }
+
+  function setTranslate(px) {
+    if (navbar) navbar.style.transform = px ? 'translateX(' + px + 'px)' : '';
+    if (pusher) pusher.style.transform = px ? 'translateX(' + px + 'px)' : '';
+  }
+
+  function openPanel() {
+    if (open) return;
+    panelW = getPanelW();
+    setTranslate(panelW);
+    if (sbW > 0) body.style.paddingRight = sbW + 'px';
+    body.style.overflow = 'hidden';
+    body.style.overflowX = 'hidden';
+    if (panel) {
+      panel.classList.remove('-translate-x-full');
+      panel.classList.add('translate-x-0');
+      panel.setAttribute('aria-hidden', 'false');
+    }
+    if (overlay) {
+      overlay.classList.remove('opacity-0', 'invisible');
+      overlay.classList.add('opacity-100', 'visible');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+    if (hamburger) hamburger.setAttribute('aria-expanded', 'true');
+    open = true;
+    if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 200);
+  }
+
+  function closePanel() {
+    if (!open) return;
+    setTranslate(0);
+    body.style.paddingRight = '';
+    body.style.overflow = '';
+    body.style.overflowX = '';
+    if (panel) {
+      panel.classList.add('-translate-x-full');
+      panel.classList.remove('translate-x-0');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+    if (overlay) {
+      overlay.classList.add('opacity-0', 'invisible');
+      overlay.classList.remove('opacity-100', 'visible');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+    open = false;
+    if (hamburger) hamburger.focus();
+  }
+
+  if (hamburger) hamburger.addEventListener('click', function (e) { e.stopPropagation(); openPanel(); });
+  if (closeBtn) closeBtn.addEventListener('click', function (e) { e.stopPropagation(); closePanel(); });
+  if (overlay) overlay.addEventListener('click', function (e) { e.stopPropagation(); closePanel(); });
+  if (panel) panel.addEventListener('click', function (e) { e.stopPropagation(); });
+
+  document.querySelectorAll('.tu-panel-link').forEach(function (a) {
+    a.addEventListener('click', function () { if (open) closePanel(); });
+  });
+
+  window.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) closePanel(); });
+
+  var resizeT;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(function () {
+      if (window.innerWidth >= 640 && open) {
+        closePanel();
+      } else if (window.innerWidth < 640 && open && panel) {
+        var nw = panel.offsetWidth;
+        if (nw > 0 && nw !== panelW) { panelW = nw; setTranslate(panelW); }
+      }
+    }, 100);
+  });
+
+  window.addEventListener('orientationchange', function () {
+    if (open && panel) {
+      setTimeout(function () {
+        var nw = panel.offsetWidth;
+        if (nw) { panelW = nw; setTranslate(panelW); }
+      }, 50);
+    }
+  });
+})();
+</script>

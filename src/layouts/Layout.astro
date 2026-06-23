@@ -10,6 +10,15 @@ const description =
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP49VG4K0"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-QHP49VG4K0');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href={favicon.src} />
@@ -26,6 +35,7 @@ const description =
 				document.documentElement.classList.toggle("dark", dark);
 			})();
 		</script>
+		
 	</head>
 	<body>
 		<slot />
