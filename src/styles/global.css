@@ -7,6 +7,7 @@
   /* Typography (DESIGN.md font families) */
   --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --font-jua: "Jua", sans-serif;
 
   /* Radius scale (DESIGN.md `rounded`) */
   --radius-xs: 4px;

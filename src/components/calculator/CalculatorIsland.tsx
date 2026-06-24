@@ -86,7 +86,7 @@ export default function CalculatorIsland() {
       <div className="rounded-md border border-hairline bg-canvas shadow-sm overflow-hidden">
 
         {/* Nav bar: theme toggle left, pill center, mirrored spacer right */}
-        <div className="relative flex items-center border-b border-hairline bg-canvas px-4 py-2">
+        <div className="relative flex items-center bg-canvas px-4 py-2">
           {/* Left — spacer to balance the pill centering */}
           <div className="flex items-center" style={{ width: 35 }} aria-hidden="true" />
 
