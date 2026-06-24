@@ -1,50 +1,246 @@
 ---
-// SeoContentSlots.astro — placeholder slots for future FAQ and HowTo content.
+// SeoContentSlots.astro — the page's main SEO + AI-search content surface.
 // No client JS and no calculator logic (Requirement 1.3, 21.2, 22.2).
 //
-// SEO NOTE (see docs/seo-guide.md):
-// Full SEO optimization is intentionally out of scope for the current build.
-// These sections mark exactly where future content should be added:
-//   - FAQ: question/answer pairs answering common SEE GPA questions.
-//          Later, attach FAQPage JSON-LD structured data here.
-//   - HowTo: step-by-step usage guide for the calculator.
-//           Later, attach HowTo JSON-LD structured data here.
-// Keep this file logic-free; it exists only to reserve the content structure.
+// Contains three parts:
+//   1. A ~600-word "About the SEE GPA Calculator" explainer (human + AI readable)
+//   2. A HowTo block with HowTo JSON-LD
+//   3. An FAQ block with FAQPage JSON-LD
+//
+// Answer blocks are kept self-contained (40–60 words) so AI engines
+// (Google AI Overviews, ChatGPT, Perplexity, Gemini) can extract and cite them.
+
+const howToSteps = [
+  {
+    name: 'Pick Grade mode or Marks mode',
+    text: 'Choose Grade mode to enter letter grades like A+, B or C, or choose Marks mode to type your raw theory and practical marks. Marks are converted to the NEB grade automatically.',
+  },
+  {
+    name: 'Enter each subject',
+    text: 'Fill in all six compulsory subjects plus your two optional subjects. Theory and practical are handled separately, and Computer Science uses the 50/50 split automatically.',
+  },
+  {
+    name: 'Read your GPA',
+    text: 'Your overall SEE GPA (0.0 to 4.0) and its equivalent letter grade appear instantly in the result banner, calculated with the official NEB credit-hour-weighted method.',
+  },
+  {
+    name: 'Plan, check eligibility or export',
+    text: 'Use the GPA planner to find the grades you need for a target GPA, check your +2 stream eligibility, or generate and download your SEE marksheet.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What is the SEE GPA Calculator?',
+    answer:
+      'The SEE GPA Calculator on tools.seepapers.com is a free online tool that calculates your Secondary Education Examination (SEE) Grade Point Average using the official NEB grading system. You can enter letter grades or raw marks, plan a target GPA, check +2 eligibility, and generate your SEE marksheet.',
+  },
+  {
+    question: 'How is SEE GPA calculated in Nepal?',
+    answer:
+      'SEE GPA is calculated by weighting grade points, not raw marks. Each subject component is converted to a percentage, mapped to a grade band (A+ = 4.0), and the subject grade point is a weighted average. The final GPA is the credit-hour-weighted average of all subject grade points.',
+  },
+  {
+    question: 'Can I calculate my SEE GPA from marks instead of grades?',
+    answer:
+      'Yes. Switch to Marks mode and type your raw theory and practical marks for each subject. The calculator converts every mark into the matching NEB grade and grade point automatically, then computes your overall GPA the same way the official SEE marksheet does.',
+  },
+  {
+    question: 'What GPA do I need for the +2 Science stream?',
+    answer:
+      'For +2 Science you generally need an overall GPA of at least 2.0, with at least C+ (GP 2.4) in both Science and Mathematics, and at least D (GP 1.6) in English, Nepali and Social Studies. Management and Humanities require an overall GPA of 1.6.',
+  },
+  {
+    question: 'What is a good SEE GPA?',
+    answer:
+      'There is no such thing as good GPA. 3.6 to 4.0 (A+) is excellent and opens every +2 stream. 3.2 to 3.6 (A) is very strong, and 2.0 and above keeps Science open. Any GPA at or above 1.6 lets you join Management or Humanities. Higher GPAs widen your stream and scholarship options.',
+  },
+  {
+    question: 'Does the SEE GPA Calculator follow the official NEB system?',
+    answer:
+      'Yes. Every grade band, grade point, credit hour and pass threshold follows the National Examinations Board (NEB) 4.0 grading scale used for SEE. The tool is built for estimation and study planning, so always confirm your final result with your official NEB marksheet.',
+  },
+  {
+    question: 'How does the SEE GPA planner work?',
+    answer:
+      'The GPA planner works backwards from your target. Enter the GPA you want, and the planner shows realistic grade combinations across your subjects that reach it. It is the easiest way to see exactly which grades you need before the SEE exam.',
+  },
+  {
+    question: 'Can I generate my SEE marksheet or transcript?',
+    answer:
+      'Yes. After entering your subjects, the marksheet generator builds a clean SEE marksheet preview showing each subject, its grade and grade point, plus your final GPA. You can download or print it as a transcript for your own records and applications.',
+  },
+  {
+    question: 'Is the SEE GPA Calculator free to use?',
+    answer:
+      'Yes, the Seepapers SEE GPA Calculator is completely free, works on mobile and desktop, and needs no sign-up. Your marks stay in your browser and are never uploaded, so calculating your GPA is private, fast and ad-light.',
+  },
+];
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to calculate your SEE GPA',
+  description:
+    'Step-by-step guide to calculating your NEB SEE Grade Point Average from grades or marks using the Seepapers SEE GPA Calculator.',
+  step: howToSteps.map((s, i) => ({
+    '@type': 'HowToStep',
+    position: i + 1,
+    name: s.name,
+    text: s.text,
+  })),
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
 ---
 
-<section id="faq" class="border-t border-hairline bg-canvas-soft" aria-labelledby="faq-heading">
-  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-    <h2 id="faq-heading" class="text-2xl font-semibold tracking-tight text-ink">
+{/* Structured data for AI engines and rich results */}
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<!-- ───────────────────────── About / 600-word SEO copy ───────────────────────── -->
+<section id="about" class="border-t border-hairline bg-canvas" aria-labelledby="about-heading">
+  <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <h2 id="about-heading" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+      About the SEE GPA Calculator
+    </h2>
+
+    <div class="prose-see mt-6 space-y-4 text-base leading-relaxed text-body">
+      <p>
+        The <strong class="text-ink">SEE GPA Calculator</strong> from
+        <a href="https://seepapers.com/" class="see-link">Seepapers.com</a> is a free, student-friendly tool that
+        helps Class 10 students in Nepal find their Secondary Education Examination Grade Point Average in seconds.
+        Whether you already have your letter grades or only know your raw marks, this online GPA calculator turns them
+        into an accurate SEE GPA using the official National Examinations Board (NEB) grading system for 2082 (2026).
+      </p>
+
+      <p>
+        Most students search for a <strong class="text-ink">see gpa calculator</strong> right after results are
+        published, when they want a quick, trustworthy answer. Our tool is built for exactly that moment. You can
+        calculate GPA by grades or calculate GPA by marks, and the result matches how the official NEB marksheet is
+        prepared — grade points are weighted by credit hours, never by simply averaging raw numbers. Theory and
+        practical components are scored separately, and Computer Science is handled with its correct 50/50 split, so
+        your GPA is reliable for every subject combination.
+      </p>
+
+      <h3 class="text-lg font-semibold text-ink">Three tools in one</h3>
+      <p>
+        Beyond a simple GPA finder, Seepapers gives you three connected tools. The
+        <strong class="text-ink">SEE GPA planner</strong> works backwards from a target GPA and shows the grade
+        combinations you need across your subjects, which is perfect if you are aiming for a specific A or A+ result.
+        The <strong class="text-ink">+2 eligibility checker</strong> tells you which streams you qualify for —
+        <a href="https://seepapers.com/neb/science/" class="see-link">Science</a>,
+        <a href="https://seepapers.com/neb/management/" class="see-link">Management</a> or
+        <a href="https://seepapers.com/neb/humanities/" class="see-link">Humanities</a> — based on your GPA and key
+        subject grades. The <strong class="text-ink">SEE marksheet generator</strong> builds a clean transcript you
+        can download or print for your own records.
+      </p>
+
+      <h3 class="text-lg font-semibold text-ink">Why students in Nepal trust it</h3>
+      <p>
+        Everything runs in your browser, so your marks are never uploaded or stored on a server — your data stays
+        private. The calculator is fast, mobile-friendly and easy enough for any Class 10 student to use without help.
+        It uses the same grade bands and grade points that appear on your real NEB marksheet, from A+ (4.0) down to NG,
+        and clearly explains how each result is reached so you actually understand your GPA instead of just seeing a
+        number.
+      </p>
+
+      <p>
+        Seepapers.com is a study resource built for Nepali students, with past papers and guides for
+        <a href="https://seepapers.com/" class="see-link">SEE</a> and +2. The SEE GPA Calculator brings that same
+        local focus to one of the most stressful parts of result season. Use it to calculate your GPA, plan the grades
+        you need, confirm your +2 stream eligibility and generate your SEE marksheet — all in one place, completely
+        free. If you are looking for the most accurate and easy-to-use see gpa calculator in Nepal for 2082, this is
+        the tool made just for you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── How to use ───────────────────────── -->
+<section id="how-to" class="border-t border-hairline bg-canvas-soft" aria-labelledby="howto-heading">
+  <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <h2 id="howto-heading" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+      How to calculate your SEE GPA
+    </h2>
+    <p class="mt-2 text-sm text-mute">
+      Find your NEB Grade Point Average in four simple steps.
+    </p>
+
+    <ol class="mt-8 space-y-5">
+      {
+        howToSteps.map((step, i) => (
+          <li class="flex gap-4">
+            <span
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-canvas font-mono text-sm font-semibold text-ink ring-1 ring-hairline"
+              aria-hidden="true"
+            >
+              {i + 1}
+            </span>
+            <div>
+              <h3 class="text-base font-semibold text-ink">{step.name}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-body">{step.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<!-- ───────────────────────── FAQ ───────────────────────── -->
+<section id="faq" class="border-t border-hairline bg-canvas" aria-labelledby="faq-heading">
+  <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <h2 id="faq-heading" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
       Frequently asked questions
     </h2>
-    <p class="mt-2 max-w-2xl text-sm text-mute">
-      {/* FAQ placeholder — future FAQ question/answer content and FAQPage structured data go here. */}
-      FAQ content is coming soon.
+    <p class="mt-2 text-sm text-mute">
+      Common questions about the SEE GPA Calculator, NEB grading and +2 eligibility in Nepal.
     </p>
 
-    {/* TODO(seo): Render FAQ items here. Example structure for future content:
-        <dl>
-          <dt>Question…</dt>
-          <dd>Answer…</dd>
-        </dl>
-        Then add FAQPage JSON-LD to the page head. */}
+    <dl class="mt-8 divide-y divide-hairline border-y border-hairline">
+      {
+        faqs.map((faq) => (
+          <details class="group py-2">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-3 text-base font-semibold text-ink [&::-webkit-details-marker]:hidden">
+              <dt>{faq.question}</dt>
+              <span
+                class="ml-2 shrink-0 text-mute transition-transform duration-200 group-open:rotate-45"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <dd class="pb-4 pr-8 text-sm leading-relaxed text-body">{faq.answer}</dd>
+          </details>
+        ))
+      }
+    </dl>
   </div>
 </section>
 
-<section id="how-to" class="border-t border-hairline bg-canvas" aria-labelledby="howto-heading">
-  <div class="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-    <h2 id="howto-heading" class="text-2xl font-semibold tracking-tight text-ink">
-      How to use the calculator
-    </h2>
-    <p class="mt-2 max-w-2xl text-sm text-mute">
-      {/* HowTo placeholder — future step-by-step guide and HowTo structured data go here. */}
-      A step-by-step guide is coming soon.
-    </p>
-
-    {/* TODO(seo): Render HowTo steps here. Example structure for future content:
-        <ol>
-          <li>Step…</li>
-        </ol>
-        Then add HowTo JSON-LD to the page head. */}
-  </div>
-</section>
+<style>
+  .see-link {
+    color: #7928ca;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .see-link:hover {
+    color: #007cf0;
+  }
+  :global(.dark) .see-link {
+    color: #b388ff;
+  }
+  :global(.dark) .see-link:hover {
+    color: #3b9eff;
+  }
+</style>

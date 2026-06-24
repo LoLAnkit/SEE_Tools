@@ -2,9 +2,68 @@
 import '../styles/global.css';
 import favicon from '../assets/favicon.svg';
 
-const title = 'SEE GPA Calculator — Official NEB Grade Point Average for Class 10';
-const description =
-	'Free, ad-free SEE GPA calculator for Nepali Class 10 students. Compute your Grade Point Average from grades or marks using the official NEB methodology, plan target grades, and check +2 stream eligibility.';
+/**
+ * Layout.astro — shared SEO-optimized document shell for every page on
+ * tools.seepapers.com (SEE GPA Calculator).
+ *
+ * Accepts per-page SEO props so the homepage and the trust pages
+ * (Privacy, About, Terms, Contact) can all reuse one consistent <head>.
+ */
+
+const SITE_URL = 'https://tools.seepapers.com';
+const SITE_NAME = 'SEE GPA Calculator — Seepapers.com';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	/** Path only, e.g. "/privacy-policy". Defaults to the current URL. */
+	canonical?: string;
+	ogImage?: string;
+	noindex?: boolean;
+	/** Optional page type for Open Graph (e.g. "website", "article"). */
+	ogType?: string;
+}
+
+const {
+	title = 'SEE GPA Calculator 2082 (2026) — NEB Grade Point Average for Class 10 | Seepapers',
+	description = 'SEE GPA calculator for Nepali Class 10 students. Calculate your NEB Grade Point Average from grades or marks, plan target grades with the GPA planner, check +2 eligibility for Science, Management and Humanities, and generate your SEE marksheet fast, accurate and safely.',
+	canonical,
+	ogImage = `${SITE_URL}/og-image.svg`,
+	noindex = false,
+	ogType = 'website',
+} = Astro.props as Props;
+
+// Resolve a clean absolute canonical URL that matches the sitemap (Astro emits
+// directory-style URLs with a trailing slash, e.g. /about-us/).
+const canonicalPath = canonical ?? Astro.url.pathname;
+const normalizedPath = canonicalPath === '/' ? '/' : `/${canonicalPath.replace(/^\/|\/$/g, '')}/`;
+const canonicalURL = new URL(normalizedPath, SITE_URL).href;
+
+// Organization + WebSite structured data (site-wide entity signals for Google
+// and AI engines). Page-specific schema (WebApplication, FAQPage, HowTo) is
+// added per-page via the "head" slot.
+const orgSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	name: 'Seepapers.com',
+	url: 'https://seepapers.com/',
+	logo: `${SITE_URL}/favicon.svg`,
+	description:
+		'Seepapers.com provides free SEE and NEB study tools, past papers and resources for Nepali students, including the SEE GPA Calculator.',
+	sameAs: [
+		'https://seepapers.com/',
+		'https://www.facebook.com/profile.php?id=61576273885401',
+	],
+};
+
+const websiteSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: SITE_NAME,
+	url: SITE_URL,
+	publisher: { '@type': 'Organization', name: 'Seepapers.com', url: 'https://seepapers.com/' },
+	inLanguage: 'en-NP',
+};
 ---
 
 <!doctype html>
@@ -13,18 +72,64 @@ const description =
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHP49VG4K0"></script>
 		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-QHP49VG4K0');
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-QHP49VG4K0');
 		</script>
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href={favicon.src} />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Primary SEO -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+		{
+			noindex ? (
+				<meta name="robots" content="noindex, nofollow" />
+			) : (
+				<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+			)
+		}
+
+		<!-- Authorship, locale & geo signals (E-E-A-T + local relevance) -->
+		<meta name="author" content="Seepapers.com" />
+		<meta name="publisher" content="Seepapers.com" />
+		<meta name="geo.region" content="NP" />
+		<meta name="geo.placename" content="Nepal" />
+		<meta name="language" content="English" />
+		<meta name="theme-color" content="#7928ca" />
+
+		<!-- Open Graph -->
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="SEE GPA Calculator by Seepapers.com" />
+		<meta property="og:locale" content="en_NP" />
+
+		<!-- Twitter / X Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:image:alt" content="SEE GPA Calculator by Seepapers.com" />
+
+		<!-- Site-wide structured data -->
+		<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+		<!-- Per-page structured data / extra head tags -->
+		<slot name="head" />
+
 		{/* FOUC-free theme bootstrap: apply `.dark` before first paint from
 		    stored choice, falling back to the OS preference (Requirement 19.1). */}
 		<script is:inline>
@@ -35,7 +140,6 @@ const description =
 				document.documentElement.classList.toggle("dark", dark);
 			})();
 		</script>
-		
 	</head>
 	<body>
 		<slot />

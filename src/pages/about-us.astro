@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'About Us — SEE GPA Calculator | Seepapers.com';
+const description =
+  'Learn about the SEE GPA Calculator by Seepapers.com — a free, accurate NEB GPA calculator, planner, +2 eligibility checker and marksheet generator built for Nepali Class 10 students.';
+---
+
+<Layout title={title} description={description} canonical="/about-us">
+  <Header />
+
+  <main class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mb-6 text-sm text-mute">
+      <a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">›</span> About Us
+    </nav>
+
+    <h1 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">About Us</h1>
+    <p class="mt-4 text-base leading-relaxed text-body">
+      <strong class="text-ink">tools.seepapers.com</strong> is the tools home of
+      <a href="https://seepapers.com/" class="see-link">Seepapers.com</a>, a free study resource built for students in
+      Nepal. We make the <strong class="text-ink">SEE GPA Calculator</strong> — a simple, accurate way for Class 10
+      students to calculate their Secondary Education Examination (SEE) Grade Point Average.
+    </p>
+
+    <div class="mt-8 space-y-5 text-base leading-relaxed text-body">
+      <h2 class="text-xl font-semibold text-ink">What we do</h2>
+      <p>
+        Result season is stressful, and working out your GPA by hand is confusing. We built this tool so any student
+        can get a trustworthy answer in seconds. The calculator follows the official National Examinations Board (NEB)
+        grading system, the same one used on your real SEE marksheet.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">Our tools</h2>
+      <ul class="list-disc space-y-2 pl-6">
+        <li><strong class="text-ink">GPA Calculator</strong> — calculate your SEE GPA from letter grades or raw marks.</li>
+        <li><strong class="text-ink">GPA Planner</strong> — find the grade combinations you need to reach a target GPA.</li>
+        <li><strong class="text-ink">+2 Eligibility Checker</strong> — see which streams you qualify for: Science, Management or Humanities.</li>
+        <li><strong class="text-ink">Marksheet Generator</strong> — build and download a clean SEE marksheet or transcript.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold text-ink">Why students trust us</h2>
+      <p>
+        Everything runs in your browser. Your marks are never uploaded or stored on our servers, so your data stays
+        private. The tool is free, mobile-friendly and easy enough for any Class 10 student to use. We also explain how
+        each result is calculated, so you understand your GPA instead of just seeing a number.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">More from Seepapers</h2>
+      <p>
+        Looking for past papers and study guides? Visit
+        <a href="https://seepapers.com/" class="see-link">Seepapers.com</a> for SEE resources, or explore +2 materials
+        for <a href="https://seepapers.com/neb/science/" class="see-link">Science</a>,
+        <a href="https://seepapers.com/neb/management/" class="see-link">Management</a> and
+        <a href="https://seepapers.com/neb/humanities/" class="see-link">Humanities</a>.
+      </p>
+
+      <p class="rounded-md border border-hairline bg-canvas-soft px-4 py-3 text-sm">
+        <strong class="text-ink">Disclaimer:</strong> This tool is for estimation and study planning only. Always
+        confirm your final result with your official NEB SEE marksheet.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .see-link {
+    color: #7928ca;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .see-link:hover { color: #007cf0; }
+  :global(.dark) .see-link { color: #b388ff; }
+</style>

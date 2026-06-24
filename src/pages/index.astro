@@ -16,9 +16,44 @@ import MethodologyNote from '../components/MethodologyNote.astro';
 import SeoContentSlots from '../components/SeoContentSlots.astro';
 import Footer from '../components/Footer.astro';
 import CalculatorIsland from '../components/calculator/CalculatorIsland';
+
+// Page-level structured data: describes the tool itself as a free web
+// application (helps Google rich results + AI engines understand the entity).
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'SEE GPA Calculator',
+  alternateName: ['Seepapers SEE GPA Calculator', 'NEB SEE GPA Calculator', 'SEE GPA Planner'],
+  url: 'https://tools.seepapers.com/',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Web',
+  inLanguage: 'en-NP',
+  description:
+    'Free SEE GPA calculator for Nepali Class 10 students. Calculate NEB Grade Point Average from grades or marks, plan a target GPA, check +2 stream eligibility for Science, Management and Humanities, and generate a SEE marksheet.',
+  featureList: [
+    'GPA calculator (grades or raw marks)',
+    'Target GPA planner',
+    '+2 stream eligibility checker',
+    'SEE marksheet / transcript generator',
+  ],
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'NPR' },
+  publisher: { '@type': 'Organization', name: 'Seepapers.com', url: 'https://seepapers.com/' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Seepapers', item: 'https://seepapers.com/' },
+    { '@type': 'ListItem', position: 2, name: 'SEE GPA Calculator', item: 'https://tools.seepapers.com/' },
+  ],
+};
 ---
 
 <Layout>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(appSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
   <!-- Static site header -->
   <Header />
 

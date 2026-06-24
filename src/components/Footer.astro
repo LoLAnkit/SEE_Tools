@@ -1,19 +1,286 @@
 ---
-// Footer.astro — pure static site footer.
-// No client JS and no calculator logic (Requirement 1.3, 21.2).
+// Footer.astro — site footer with logo, navigation links, social icons,
+// support modal, and copyright notice.
+// No calculator logic (Requirement 1.3, 21.2).
+import logo from '../assets/logo.svg';
+import logoDark from '../assets/logo-dark.svg';
+
 const year = new Date().getFullYear();
+
+const toolLinks = [
+  { href: '/#calculator', label: 'GPA Calculator' },
+  { href: '/#calculator', label: 'GPA Planner' },
+  { href: '/#calculator', label: '+2 Eligibility Checker' },
+  { href: '/#calculator', label: 'Marksheet Generator' },
+];
+
+const seepapersLinks = [
+  { href: 'https://seepapers.com/', label: 'SEE Past Papers' },
+  { href: 'https://seepapers.com/neb/science/', label: '+2 Science' },
+  { href: 'https://seepapers.com/neb/management/', label: '+2 Management' },
+  { href: 'https://seepapers.com/neb/humanities/', label: '+2 Humanities' },
+];
+
+const trustLinks = [
+  { href: '/about-us', label: 'About Us' },
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/contact-us', label: 'Contact Us' },
+  { href: '/terms-and-conditions', label: 'Terms & Conditions' },
+];
 ---
 
-<footer class="border-t border-hairline bg-canvas">
-  <div
-    class="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 text-sm text-mute sm:flex-row sm:items-center sm:justify-between sm:px-6"
-  >
-    <p>
-      &copy; {year} SEE GPA Calculator. Built for Nepali Class 10 students.
-    </p>
-    <p class="max-w-md text-xs leading-relaxed">
-      Results follow the official National Examinations Board (NEB) grading
-      methodology. This tool is for estimation and study planning only.
-    </p>
+<footer class="w-full mt-20 md:mt-32 bg-gray-100 dark:bg-gray-950" role="contentinfo" aria-label="SEE GPA Calculator site footer">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 py-8">
+
+    <!-- Main row: logo · links · social -->
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+      <!-- Logo + brand -->
+      <div class="flex items-center gap-2 shrink-0">
+        <img src={logo.src} alt="SEE GPA Calculator logo" class="h-10 w-10 dark:hidden" loading="lazy">
+        <img src={logoDark.src} alt="SEE GPA Calculator logo" class="h-10 w-10 hidden dark:block" loading="lazy">
+        <a
+          href="/"
+          class="font-jua text-xl font-semibold text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+          aria-label="SEE GPA Calculator homepage"
+        >
+          SEEpapers.com
+        </a>
+      </div>
+
+      <!-- Nav links -->
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-300">
+          {trustLinks.map((l) => (
+            <li class="Nav-Items list-none">
+              <a href={l.href} aria-label={l.label}>
+                {l.label}
+                <svg width="100%" height="100%" viewBox="0 0 217 8" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M1.5 7.00104C78.5 -0.5 89.9 0.599716 215.5 6.99972" stroke="#888888" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </li>
+          ))}
+          <li class="Nav-Items list-none">
+            <button
+              id="footer-support-btn"
+              aria-label="Support SEE GPA Calculator development"
+              aria-haspopup="dialog"
+            >
+              Support Us
+              <svg width="100%" height="100%" viewBox="0 0 217 8" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M1.5 7.00104C78.5 -0.5 89.9 0.599716 215.5 6.99972" stroke="#888888" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Social icons -->
+      <div class="flex items-center gap-4" aria-label="SEEpapers.com social media links">
+        <a
+          href="https://www.facebook.com/profile.php?id=61589806347625"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="SEEpapers on Facebook"
+          class="social-icon-link"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+          </svg>
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="SEEpapers on Instagram"
+          class="social-icon-link"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Divider + copyright -->
+    <div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500 dark:text-gray-400">
+      <p>&copy; {year} Seepapers.com — SEE GPA Calculator. Built for Nepali Class 10 students.</p>
+      <p class="text-xs text-center sm:text-right max-w-sm leading-relaxed">
+        Results follow the official NEB grading system. For estimation and study planning only — confirm with your official SEE marksheet.
+      </p>
+    </div>
   </div>
 </footer>
+
+<!-- Support modal -->
+<div
+  id="support-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="support-modal-title"
+  class="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 invisible transition-all duration-300"
+>
+  <div
+    class="bg-white dark:bg-gray-900 dark:text-white rounded-2xl p-8 max-w-md w-full mx-4 relative transform scale-90 transition-all duration-300 shadow-2xl"
+    id="support-modal-inner"
+  >
+    <!-- Close -->
+    <button
+      id="support-modal-close"
+      aria-label="Close support modal"
+      class="absolute top-4 right-5 text-gray-400 hover:text-red-500 text-2xl leading-none transition-colors"
+    >&times;</button>
+
+    <!-- Header -->
+    <div class="text-center mb-6">
+      <h2 id="support-modal-title" class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Support Us</h2>
+      <p class="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">
+        Support us for further development and maintenance of this website.
+      </p>
+    </div>
+
+    <!-- QR code -->
+    <div class="flex justify-center mb-6">
+      <div class="w-48 h-48 bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-lg flex items-center justify-center overflow-hidden">
+        <img id="support-qr-img" alt="Scan QR code to support SEEpapers" class="w-full h-full object-contain" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Payment note -->
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 text-center">
+      <h3 class="font-semibold text-gray-800 dark:text-white mb-1">Scan to Support</h3>
+      <p class="text-sm text-gray-500 dark:text-gray-300">Thank you for supporting our work!</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Animated underline on nav links */
+  .Nav-Items a,
+  .Nav-Items button {
+    font-size: 0.875rem;
+    display: inline-block;
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    transition: color 0.2s;
+  }
+  .Nav-Items a svg,
+  .Nav-Items button svg {
+    position: absolute;
+    height: 0.25rem;
+    left: -0.125rem;
+    right: -0.125rem;
+    bottom: -0.25rem;
+    width: calc(100% + 0.25rem);
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    transition: stroke-dashoffset 0.3s;
+  }
+  .Nav-Items a:hover svg,
+  .Nav-Items button:hover svg {
+    stroke-dashoffset: 0;
+  }
+
+  /* footer list  */
+  
+.Nav-Items a {
+  font-size: 1rem;
+  display: inline-block;
+  /* color: purple; */
+  font-variation-settings: "wght" 400;
+  transition: font-variation-settings 0.2s, color 0.2s;
+  width: 100%;
+  position: relative;
+}
+
+.Nav-Items a svg {
+  position: absolute;
+  height: 0.25rem;
+  left: -0.125rem;
+  right: -0.125rem;
+  bottom: -0.25rem;
+  width: calc(100% + 0.25rem);
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  transition: stroke-dashoffset 0.3s;
+}
+
+
+.Nav-Items a:hover svg {
+  stroke-dashoffset: 0rem;
+  
+}
+
+
+
+  /* Social icons */
+  .social-icon-link {
+    color: #6b7280;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .social-icon-link:hover {
+    color: #7928ca;
+    transform: scale(1.1);
+  }
+  :global(.dark) .social-icon-link {
+    color: #9ca3af;
+  }
+  :global(.dark) .social-icon-link:hover {
+    color: #b388ff;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var modal = document.getElementById('support-modal');
+  var inner = document.getElementById('support-modal-inner');
+  var openBtn = document.getElementById('footer-support-btn');
+  var closeBtn = document.getElementById('support-modal-close');
+  var qrImg = document.getElementById('support-qr-img');
+  var qrLoaded = false;
+
+  function openModal() {
+    if (!modal) return;
+    // Lazy-load QR image on first open
+    if (!qrLoaded && qrImg) {
+      qrImg.src = '/assets/blog/nabilQr.jpg';
+      qrLoaded = true;
+    }
+    modal.classList.remove('opacity-0', 'invisible');
+    modal.classList.add('opacity-100', 'visible');
+    if (inner) { inner.classList.remove('scale-90'); inner.classList.add('scale-100'); }
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 200);
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.add('opacity-0', 'invisible');
+    modal.classList.remove('opacity-100', 'visible');
+    if (inner) { inner.classList.add('scale-90'); inner.classList.remove('scale-100'); }
+    document.body.style.overflow = '';
+    if (openBtn) openBtn.focus();
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // Close on backdrop click
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('invisible')) closeModal();
+  });
+})();
+</script>

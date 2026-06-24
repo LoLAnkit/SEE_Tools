@@ -1,0 +1,38 @@
+# SEE GPA Calculator — Seepapers.com
+
+> A free online SEE GPA calculator for Nepali Class 10 students. Calculate your
+> NEB (National Examinations Board) Grade Point Average from letter grades or raw
+> marks, plan the grades needed for a target GPA, check +2 stream eligibility, and
+> generate a SEE marksheet. Runs fully in the browser; no marks are uploaded.
+
+Site: https://tools.seepapers.com
+Brand: Seepapers.com
+Audience: Class 10 (SEE) students in Nepal and students checking +2 stream eligibility.
+Grading system: Official NEB SEE 4.0 scale (A+ = 4.0 down to NG = 0.0), credit-hour weighted.
+
+## Tools
+- GPA Calculator: compute SEE GPA from letter grades (A+, A, B+, ...) or raw theory/practical marks.
+- GPA Planner: enter a target GPA and see the grade combinations needed to reach it.
+- +2 Eligibility Checker: check qualification for Science (GPA >= 2.0), Management (GPA >= 1.6) and Humanities (GPA >= 1.6) streams based on GPA and key subject grades.
+- Marksheet / Transcript Generator: build and download a SEE marksheet showing each subject grade, grade point and final GPA.
+
+## Key pages
+- Home / calculator: https://tools.seepapers.com/
+- About: https://tools.seepapers.com/about-us
+- Contact: https://tools.seepapers.com/contact-us
+- Privacy Policy: https://tools.seepapers.com/privacy-policy
+- Terms & Conditions: https://tools.seepapers.com/terms-and-conditions
+
+## Methodology (how SEE GPA is calculated)
+1. Each component (theory, practical) is converted to a percentage of its own maximum.
+2. The percentage maps to a grade band on the NEB 4.0 scale, each band has a fixed grade point.
+3. Subject grade point = weighted average of component grade points (75/25 standard, 50/50 for Computer Science).
+4. Final GPA = sum(credit hours x subject GP) / sum(credit hours).
+
+## Related resources (Seepapers.com)
+- SEE past papers: https://seepapers.com/
+- +2 Science: https://seepapers.com/neb/science/
+- +2 Management: https://seepapers.com/neb/management/
+- +2 Humanities: https://seepapers.com/neb/humanities/
+
+Note: Results are estimates for study planning. Official GPA and eligibility are determined by the NEB.

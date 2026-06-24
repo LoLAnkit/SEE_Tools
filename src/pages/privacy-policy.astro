@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Privacy Policy — SEE GPA Calculator | Seepapers.com';
+const description =
+  'Privacy Policy for the SEE GPA Calculator on tools.seepapers.com. Learn what data we collect, how analytics and ads work, and how your marks stay private in your browser.';
+
+const email = 'contact@seepapers.com';
+const updated = 'June 24, 2026';
+---
+
+<Layout title={title} description={description} canonical="/privacy-policy">
+  <Header />
+
+  <main class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mb-6 text-sm text-mute">
+      <a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">›</span> Privacy Policy
+    </nav>
+
+    <h1 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Privacy Policy</h1>
+    <p class="mt-3 text-sm text-mute">Last updated: {updated}</p>
+
+    <div class="mt-8 space-y-5 text-base leading-relaxed text-body">
+      <p>
+        This Privacy Policy explains how <strong class="text-ink">tools.seepapers.com</strong> ("we", "us", "our"),
+        operated by Seepapers.com, handles information when you use the SEE GPA Calculator. We respect your privacy and
+        keep data collection to a minimum.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">1. Your marks stay in your browser</h2>
+      <p>
+        The grades and marks you enter into the calculator, planner, eligibility checker and marksheet generator are
+        processed entirely in your browser. We do <strong class="text-ink">not</strong> upload, transmit or store your
+        academic data on our servers. When you close or refresh the page, that data is gone unless your browser keeps
+        it locally.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">2. Local storage</h2>
+      <p>
+        We use your browser's local storage only to remember small preferences, such as your light or dark theme
+        choice. This stays on your device and is never sent to us.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">3. Analytics</h2>
+      <p>
+        We use Google Analytics to understand how visitors use the site (for example, which tools are most popular and
+        which pages are visited). Google Analytics may set cookies and collect anonymised data such as your device
+        type, approximate location and pages viewed. This helps us improve the tool. You can read
+        <a
+          href="https://policies.google.com/privacy"
+          class="see-link"
+          target="_blank"
+          rel="noopener noreferrer">Google's Privacy Policy</a
+        > for details.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">4. Advertising</h2>
+      <p>
+        We may display advertising, including through Google AdSense. Third-party vendors, including Google, use
+        cookies to serve ads based on a user's prior visits to this and other websites. You can manage personalised
+        advertising through
+        <a
+          href="https://www.google.com/settings/ads"
+          class="see-link"
+          target="_blank"
+          rel="noopener noreferrer">Google Ads Settings</a
+        >.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">5. Cookies</h2>
+      <p>
+        Cookies are small files stored on your device. We and our partners (analytics and advertising) may use them as
+        described above. You can disable cookies in your browser settings, though some features may not work as
+        intended.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">6. Children's privacy</h2>
+      <p>
+        This tool is designed for Class 10 students. We do not knowingly collect personal information from children.
+        Because we do not require sign-up or collect your name or contact details, no personal academic profile is
+        ever created.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">7. External links</h2>
+      <p>
+        Our site links to Seepapers.com and other resources. We are not responsible for the privacy practices of those
+        external sites; please review their own policies.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">8. Changes to this policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. The "Last updated" date above shows when it was last
+        revised. Continued use of the site means you accept the current version.
+      </p>
+
+      <h2 class="text-xl font-semibold text-ink">9. Contact</h2>
+      <p>
+        Questions about this policy? Email us at
+        <a href={`mailto:${email}`} class="see-link">{email}</a> or use our
+        <a href="/contact-us" class="see-link">Contact page</a>.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .see-link {
+    color: #7928ca;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .see-link:hover { color: #007cf0; }
+  :global(.dark) .see-link { color: #b388ff; }
+</style>

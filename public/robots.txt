@@ -1,0 +1,35 @@
+# robots.txt for tools.seepapers.com — SEE GPA Calculator
+# Allow all standard search engines and AI search crawlers to index and cite.
+
+User-agent: *
+Allow: /
+
+# AI search & answer engines (explicitly allowed so they can cite this tool)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://tools.seepapers.com/sitemap-index.xml

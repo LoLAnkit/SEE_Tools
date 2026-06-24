@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Contact Us — SEE GPA Calculator | Seepapers.com';
+const description =
+  'Get in touch with the Seepapers.com team about the SEE GPA Calculator. Send feedback, report a problem or ask a question about NEB GPA, +2 eligibility or the marksheet generator.';
+
+// Update this address to your real support inbox.
+const email = 'contact@seepapers.com';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: title,
+  url: 'https://tools.seepapers.com/contact-us',
+  about: { '@type': 'Organization', name: 'Seepapers.com', url: 'https://seepapers.com/' },
+};
+---
+
+<Layout title={title} description={description} canonical="/contact-us">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(contactSchema)} />
+  <Header />
+
+  <main class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mb-6 text-sm text-mute">
+      <a href="/" class="hover:text-ink">Home</a> <span aria-hidden="true">›</span> Contact Us
+    </nav>
+
+    <h1 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Contact Us</h1>
+    <p class="mt-4 text-base leading-relaxed text-body">
+      We would love to hear from you. Whether you found a bug, have an idea to make the SEE GPA Calculator better, or
+      have a question about NEB grading, +2 eligibility or the marksheet generator, reach out any time.
+    </p>
+
+    <div class="mt-8 space-y-6 text-base leading-relaxed text-body">
+      <div class="rounded-md border border-hairline bg-canvas-soft p-5">
+        <h2 class="text-lg font-semibold text-ink">Email</h2>
+        <p class="mt-1">
+          Write to us at
+          <a href={`mailto:${email}`} class="see-link">{email}</a>. We usually reply within a few working days.
+        </p>
+      </div>
+
+      <div class="rounded-md border border-hairline bg-canvas-soft p-5">
+        <h2 class="text-lg font-semibold text-ink">Social</h2>
+        <p class="mt-1">
+          Follow and message us on
+          <a
+            href="https://www.facebook.com/profile.php?id=61576273885401"
+            class="see-link"
+            target="_blank"
+            rel="noopener noreferrer">Facebook</a
+          >.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-ink">Helpful before you write</h2>
+        <p class="mt-1">
+          Many common questions about SEE GPA, marks-to-grade conversion and +2 stream eligibility are answered on our
+          <a href="/#faq" class="see-link">FAQ section</a>. For past papers and study guides, visit
+          <a href="https://seepapers.com/" class="see-link">Seepapers.com</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .see-link {
+    color: #7928ca;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .see-link:hover { color: #007cf0; }
+  :global(.dark) .see-link { color: #b388ff; }
+</style>
